@@ -1,22 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Flex from "./components/flex/Flex";
+import Navbar from "./components/navbar/Navbar";
+import Section from "./components/section/Section";
+import Title from "./components/title/Title";
+import GlobalStyles from "./theme/GlobalStyles";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <header>
+        <Navbar />
+        <Section
+          backgroundColor="#FCF7F8"
+          heading={"Services"}
+          description={
+            "BarberShop specializes in classic cuts, beard trims, hot towel shaves, quality mens grooming products and more! "
+          }
         >
-          Learn React
-        </a>
+          <Flex justify="space-between">
+            <ul>
+              <li>Regular haircut</li>
+              <li>$29.95</li>
+            </ul>
+            <ul>Sadas</ul>
+          </Flex>
+        </Section>
+        <GlobalStyles />
       </header>
     </div>
   );
