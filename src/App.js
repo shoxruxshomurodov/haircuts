@@ -3,7 +3,8 @@ import Navbar from "./components/navbar/Navbar";
 import Section from "./components/section/Section";
 import Title from "./components/title/Title";
 import GlobalStyles from "./theme/GlobalStyles";
-
+import ServicesHaircut from "./assets/images/services1.png";
+import ServicesRazor from "./assets/images/services2.png";
 function App() {
   return (
     <div>
@@ -17,12 +18,22 @@ function App() {
           }
         >
           <Flex justify="space-between">
-            <ul>
-              <li>Regular haircut</li>
-              <li>$29.95</li>
-            </ul>
-            <ul>Sadas</ul>
+            <div>
+              <img src={ServicesHaircut} />
+              <Flex justify="space-between">
+                <ul className="services-list">
+                  <li className="services-list-item">
+                    <span>Regular haircut</span>
+                    <span>$29.95</span>
+                  </li>
+                </ul>
+              </Flex>
+            </div>
+            <div>
+              <img src={ServicesHaircut} />
+            </div>
           </Flex>
+          <Flex justify="space-between"></Flex>
         </Section>
         <GlobalStyles />
       </header>
