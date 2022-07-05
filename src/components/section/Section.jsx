@@ -5,7 +5,10 @@ import Flex from "../flex/Flex";
 import Title from "../title/Title";
 
 const SectionStyle = styled.section`
-  padding: 90px 315px;
+  padding-left: ${(props) => props.pl || "315px"};
+  padding-right: ${(props) => props.pr || "315px"};
+  padding-top: ${(props) => props.pt};
+  padding-bottom: ${(props) => props.pb};
   background: ${(props) => props.backgroundColor};
   display: flex;
   flex-direction: column;
@@ -18,12 +21,43 @@ const SectionStyle = styled.section`
   .full-width {
     width: 100%;
   }
+  @media screen and (max-width: 1900px) {
+    padding-left: 250px;
+    padding-right: 250px;
+  }
+  @media screen and (max-width: 1800px) {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  @media screen and (max-width: 1700px) {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  @media screen and (max-width: 1600px) {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  @media screen and (max-width: 798px) {
+    .description {
+      max-width: 300px;
+    }
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 `;
-const Section = ({ heading, description, children, ...props }) => {
+
+const Section = ({ heading, headingRed, description, children, ...props }) => {
   return (
     <SectionStyle {...props}>
       <Flex justify="center">
-        <Title xxl bold>
+        <Title xxl bold red heading>
+          {headingRed}
+        </Title>
+        <Title xxl bold heading>
           {heading}
         </Title>
       </Flex>
@@ -32,7 +66,7 @@ const Section = ({ heading, description, children, ...props }) => {
           {description}
         </Title>
       </Flex>
-      <div className="full-width"> {children} </div>
+      <div className="full-width">{children}</div>
     </SectionStyle>
   );
 };

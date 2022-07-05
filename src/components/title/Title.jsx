@@ -4,6 +4,17 @@ const StyledTitle = styled.p`
   font-weight: 400;
   font-size: 16px;
   color: #0e0c0c;
+  ${({ heading }) =>
+    heading &&
+    css`
+      font-family: "Teko", sans-serif;
+    `}
+  ${({ red }) =>
+    red &&
+    css`
+      color ${(props) => props.theme.colors.primary};
+      margin-right: 10px;
+    `}
   ${({ xs }) =>
     xs &&
     css`
@@ -17,12 +28,24 @@ const StyledTitle = styled.p`
   ${({ regular }) =>
     regular &&
     css`
-      font-size: 16px;
+      font-size: 17px;
     `}
   ${({ md }) =>
     md &&
     css`
       font-size: 20px;
+      @media screen and (max-width: 798px) {
+        font-size: 14px;
+      }
+      @media screen and (max-width: 560px) {
+        font-size: 12px;
+      }
+    `}
+    ${({ medium_md }) =>
+    medium_md &&
+    css`
+      font-size: 20px;
+      font-weight: 500;
     `}
   ${({ lg }) =>
     lg &&
@@ -37,7 +60,10 @@ const StyledTitle = styled.p`
   ${({ xxl }) =>
     xxl &&
     css`
-      font-size: 50px; ;
+      font-size: 50px;
+      @media screen and (max-width: 798px) {
+        font-size: 30px;
+      }
     `}
   ${({ light }) =>
     light &&

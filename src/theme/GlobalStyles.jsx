@@ -18,7 +18,9 @@ export default createGlobalStyle`
     color: #353945;
     background: #ffffff;
     line-height: 1.5;
-    font-family: 'Montserrat', sans-serif;
+    font-family: ${(props) => props.theme.font.primary};
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   .text {
     &-center {
@@ -44,4 +46,8 @@ export default createGlobalStyle`
   .container{
     width: 90%;
   }
+  .slick-slide{
+    margin: auto;
+  }
+  
 `;
