@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Title from "../../../../components/title/Title";
-const MemberCardStyle = styled.div`
+
+const TeamMemberCardStyle = styled.div`
   .card-image {
     height: 510px;
     width: 410px;
@@ -59,6 +60,10 @@ const MemberCardStyle = styled.div`
     .card-image {
       height: 410px;
       width: 310px;
+      .card-image-context p {
+        font-size: 12px;
+        padding: 70px 35px;
+      }
       img {
         height: 410px;
         width: 310px;
@@ -66,9 +71,9 @@ const MemberCardStyle = styled.div`
     }
   }
 `;
-const MemberCard = ({ children, ...props }) => {
+const TeamMemberCard = ({ children, ...props }) => {
   return (
-    <MemberCardStyle {...props}>
+    <TeamMemberCardStyle {...props}>
       <div className="card-image">
         <img src={props.backgroundImage} />
         <div className="card-image-context">
@@ -79,8 +84,8 @@ const MemberCard = ({ children, ...props }) => {
         </Title>
       </div>
       {children}
-    </MemberCardStyle>
+    </TeamMemberCardStyle>
   );
 };
 
-export default MemberCard;
+export default TeamMemberCard;

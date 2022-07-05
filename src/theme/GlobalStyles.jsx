@@ -49,5 +49,22 @@ export default createGlobalStyle`
   .slick-slide{
     margin: auto;
   }
-  
+  .section-description{
+    max-width: 630px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .text-primary{
+    color: ${(props) => props.theme.colors.primary};
+  }
+  .text-white{
+    color: ${(props) => props.theme.colors.white};
+  }
+  @media screen and (max-width: 560px) {
+    .section-description {
+      max-width: 300px;
+    }
+  }
+
 `;

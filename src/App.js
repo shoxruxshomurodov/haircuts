@@ -1,21 +1,15 @@
-import Flex from "./components/flex/Flex";
-import Navbar from "./components/navbar/Navbar";
-import Section from "./components/section/Section";
 import GlobalStyles from "./theme/GlobalStyles";
-import ServicesHaircut from "./assets/images/services1.png";
-import ServicesRazor from "./assets/images/services2.png";
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./modules/pages/LandingPage";
 import "./assets/styles/index.css";
+import Layout from "./layout/Layout";
 function App() {
   return (
-    <div>
-      <header>
-        {/* <Navbar /> */}
-
+    <>
+      <Layout>
         <LandingPage />
-        <GlobalStyles />
-      </header>
-    </div>
+      </Layout>
+      <GlobalStyles />
+    </>
   );
 }
 

@@ -8,6 +8,14 @@ const StyledTitle = styled.p`
     heading &&
     css`
       font-family: "Teko", sans-serif;
+      line-height: 50px;
+    `}
+  ${({ header }) =>
+    header &&
+    css`
+      font-family: "Teko", sans-serif;
+      line-height: 80px;
+      font-size: 80px;
     `}
   ${({ red }) =>
     red &&
@@ -29,6 +37,7 @@ const StyledTitle = styled.p`
     regular &&
     css`
       font-size: 17px;
+      line-height: 22px;
     `}
   ${({ md }) =>
     md &&
@@ -50,7 +59,7 @@ const StyledTitle = styled.p`
   ${({ lg }) =>
     lg &&
     css`
-      font-size: 24px;
+      font-size: 30px;
     `}
   ${({ xl }) =>
     xl &&
