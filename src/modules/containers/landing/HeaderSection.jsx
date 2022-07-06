@@ -4,12 +4,17 @@ import styled, { useTheme } from "styled-components";
 import HeaderImage from "../../../assets/images/header-image.png";
 import Title from "../../../components/title/Title";
 import Button from "../../../components/button/Button";
+import { Link } from "react-scroll";
+import BounceCard from "../../../components/bounce/BounceCard";
+import HappyIcon from "../../../assets/icons/smile.svg";
+import StarIcon from "../../../assets/icons/star.svg";
 const HeaderSectionStyle = styled.header`
   .fluid-container {
     /* padding: 0 !important; */
   }
   .background-primary {
     display: flex;
+    position: relative;
     padding: 0 !important;
     background: ${(props) => props.theme.colors.primary};
   }
@@ -33,7 +38,22 @@ const HeaderSectionStyle = styled.header`
     text-align: justify;
     width: 90%;
   }
+  .bounce-card {
+  }
+  .bounce-card-happy {
+    position: absolute;
+    bottom: 40px;
+    left: -10%;
+  }
+  .bounce-card-quality {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+  }
+
   @media screen and (max-width: 1200px) {
+    margin-bottom: 20px;
+
     .header-context-container {
       display: flex;
       justify-content: center;
@@ -46,7 +66,22 @@ const HeaderSectionStyle = styled.header`
       .header-title {
         font-size: 50px;
         line-height: 50px;
+        margin-bottom: 20px;
       }
+    }
+    .buttons-row {
+      padding-top: 10px;
+    }
+    .button {
+      min-width: 100%;
+    }
+    .background-primary {
+      margin-top: 80px;
+    }
+    .bounce-card-happy {
+      position: absolute;
+      bottom: -15%;
+      left: 10%;
     }
   }
   @media screen and (max-width: 798px) {
@@ -73,22 +108,30 @@ const HeaderSection = ({}) => {
                     You will leave BarberShop relaxed and ready to take on the
                     world with this audacious move.
                   </Title>
-                  <Row>
-                    <Col className="mt-10">
-                      <Button pr={"60px"} pl={"60px"}>
+                  <Row className=" mt-10 buttons-row" wrap="wrap">
+                    <Col xl={5} md={12} className="mt-10">
+                      <Button minWidth={"220px"} className="button">
                         Book an appointment
                       </Button>
                     </Col>
-                    <Col className="mt-10">
+                    <Col className="mt-10" xl={5} md={12}>
                       <Button
-                        pr={"80px"}
-                        pl={"80px"}
+                        className="button"
+                        minWidth={"170px"}
                         color={theme.colors.primary}
                         bg={"transparent"}
                         borderColor={theme.colors.primary}
                         hover={"rgba(196, 86, 79, 0.1)"}
                       >
-                        Check services
+                        <Link
+                          spy={true}
+                          smooth={true}
+                          duration={1000}
+                          offset={-80}
+                          to="services"
+                        >
+                          Check services
+                        </Link>
                       </Button>
                     </Col>
                   </Row>
@@ -98,6 +141,26 @@ const HeaderSection = ({}) => {
           </Col>
           <Col xl={6} lg={12} className="background-primary">
             <img src={HeaderImage} className="header-image" />
+            <BounceCard
+              className="bounce-card-happy"
+              icon={HappyIcon}
+              rating={"4.7"}
+              description={"Happy clients"}
+              iconBg={"linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);"}
+            >
+              <img src={HeaderImage} className="header-image" />
+            </BounceCard>
+            <BounceCard
+              className="bounce-card-quality"
+              icon={StarIcon}
+              rating={"4.8"}
+              description={"Services quality"}
+              iconBg={
+                "linear-gradient(90deg, #FDC830 0%, #F5AF19 100%, #F37335 100%), linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%)"
+              }
+            >
+              <img src={HeaderImage} className="header-image" />
+            </BounceCard>
           </Col>
         </Row>
       </Container>

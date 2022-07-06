@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../../../../components/button/Button";
 import Title from "../../../../components/title/Title";
 
 const TeamMemberCardStyle = styled.div`
@@ -43,6 +44,11 @@ const TeamMemberCardStyle = styled.div`
     top: calc(100% - 50px);
     transition: all 0.3s ease;
   }
+
+  .card-button {
+    margin-top: 10px;
+  }
+
   .card-image:hover .card-image-title {
     top: 30px;
   }
@@ -84,7 +90,11 @@ const TeamMemberCard = ({ children, ...props }) => {
           {props.title}
         </Title>
       </div>
-      {children}
+      <div className="card-button">
+        <Button pr={"40px"} pl={"40px"}>
+          Book an appointment
+        </Button>
+      </div>
     </TeamMemberCardStyle>
   );
 };

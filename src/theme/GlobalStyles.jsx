@@ -66,6 +66,9 @@ export default createGlobalStyle`
   .mt-10{
     margin-top: 10px;
   }
+  .mb-10{
+    margin-bottom: 10px;
+  }
   @media screen and (max-width: 560px) {
     .section-description {
       max-width: 300px;

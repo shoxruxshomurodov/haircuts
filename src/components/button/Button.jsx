@@ -3,8 +3,7 @@ import styled from "styled-components";
 const ButtonStyle = styled.button`
   padding-top: ${(props) => props.pt || "16px"};
   padding-bottom: ${(props) => props.pb || "16px"};
-  padding-right: ${(props) => props.pr || "30px"};
-  padding-left: ${(props) => props.pl || "30px"};
+  min-width: ${(props) => props.minWidth || "320px"};
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;

@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { Row, Col, Hidden } from "react-grid-system";
 import { FiChevronDown } from "react-icons/fi";
+import { Link } from "react-scroll";
 const links = [
   {
     text: "About",
+    link: "about",
   },
   {
     text: "Services",
+    link: "services",
   },
   {
     text: "Team",
+    link: "team",
   },
   {
     text: "Gallery",
+    link: "gallery",
   },
 ];
 
@@ -193,6 +198,11 @@ const NavbarStyle = styled.div`
 `;
 
 const Navbar = ({ backgroundColor, fontColor, brand }) => {
+  const messagesEndRef = useRef(null);
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const [isMenuClosed, setMenuClosed] = useState(true);
   return (
     <NavbarStyle>
@@ -437,9 +447,17 @@ const Navbar = ({ backgroundColor, fontColor, brand }) => {
           <div className="nav-links">
             {links?.map((node) => {
               return (
-                <a key={node.text} to={node.link} style={{ color: fontColor }}>
+                <Link
+                  to={node.link}
+                  spy={true}
+                  smooth={true}
+                  duration={1000}
+                  offset={-80}
+                  key={node.text}
+                  style={{ color: fontColor }}
+                >
                   {node.text}
-                </a>
+                </Link>
               );
             })}
           </div>

@@ -6,6 +6,7 @@ import HeaderSection from "./HeaderSection";
 import ServiceSection from "./ServiceSection";
 import TeamSection from "./TeamSection";
 import { setConfiguration } from "react-grid-system";
+import { Element } from "react-scroll";
 
 setConfiguration({
   containerWidths: [540, 750, 960, 1140, 1310, 1810],
@@ -15,10 +16,18 @@ const LandingPageContainer = () => {
   return (
     <>
       <HeaderSection />
-      <AboutSection />
-      <ServiceSection />
-      <TeamSection />
-      <GallerySection />
+      <Element name="about">
+        <AboutSection />
+      </Element>
+      <Element name="services">
+        <ServiceSection />
+      </Element>
+      <Element name="team">
+        <TeamSection />
+      </Element>
+      <Element name="gallery">
+        <GallerySection />
+      </Element>
     </>
   );
 };

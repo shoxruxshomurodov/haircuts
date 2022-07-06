@@ -1,29 +1,43 @@
 import React from "react";
 import styled from "styled-components";
+import Title from "../title/Title";
 
 const BounceCardStyle = styled.div`
-  padding: 25px;
-  background: #ffffff;
-  box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.1),
-    0px 8px 8px -4px rgba(16, 24, 40, 0.04);
-  border-radius: 8px;
-  .stage {
-    border-bottom: 3px solid #444;
-    display: flex;
-    height: 330px;
-    width: 100%;
-  }
-  .box {
-    align-self: flex-end;
-    animation-duration: 2s;
+  .bounce-box {
+    animation-duration: 7s;
     animation-iteration-count: infinite;
-    background-color: #f44336;
-    height: 200px;
-    margin: 0 auto 0 auto;
     transform-origin: bottom;
-    width: 200px;
+    background: #ffffff;
+    box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.1),
+      0px 8px 8px -4px rgba(16, 24, 40, 0.04);
+    border-radius: 7px;
+    padding: 20px 15px;
   }
-  .bounce-1 {
+  .bounce-icon-container {
+    display: flex;
+    justify-content: center;
+  }
+  .bounce-icon {
+    background: ${(props) => props.iconBg || "blue"};
+    box-shadow: 0px 15px 16.6667px -3.33333px rgba(58, 125, 141, 0.1),
+      0px 5px 5px -3.33333px rgba(58, 125, 141, 0.04);
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 7px;
+    svg {
+      width: 40px;
+    }
+  }
+  .bounce-rating {
+    display: flex;
+    justify-content: center;
+  }
+  .bounce-description {
+    display: flex;
+    justify-content: center;
+  }
+  .bounce {
     animation-name: bounce;
     animation-timing-function: linear;
   }
@@ -32,18 +46,46 @@ const BounceCardStyle = styled.div`
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-100px);
+      transform: translateY(-80px);
     }
     100% {
       transform: translateY(0);
     }
   }
+
+  @media screen and (max-width: 1200px) {
+    .bounce-box {
+      padding: 10px;
+    }
+    .bounce-icon {
+      padding: 10px;
+      svg {
+        width: 30px;
+      }
+    }
+  }
 `;
 
-const BounceCard = ({ icon }) => {
+const BounceCard = ({ icon, text, rating, description, ...props }) => {
   return (
-    <BounceCardStyle class="stage">
-      <div class="box bounce-1">{icon}</div>
+    <BounceCardStyle {...props}>
+      <div class="bounce-box bounce">
+        <div class="bounce-icon-container">
+          <div class="bounce-icon">
+            <img src={icon} />
+          </div>
+        </div>
+        <div class="bounce-rating">
+          <Title extraBold md>
+            {rating}
+          </Title>
+        </div>
+        <div class="bounce-description">
+          <Title xs gray md>
+            {description}
+          </Title>
+        </div>
+      </div>
     </BounceCardStyle>
   );
 };
