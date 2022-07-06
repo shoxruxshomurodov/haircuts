@@ -129,6 +129,7 @@ const GalleryItemStyle = styled.div`
 
   .img-hover-zoom:hover img {
     transform: scale(1.1);
+    transition: transform 0.6s ease;
   }
 `;
 const GalleryItem = ({ image, url }) => {
