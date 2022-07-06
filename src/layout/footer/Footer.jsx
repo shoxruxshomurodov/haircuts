@@ -40,6 +40,12 @@ const FooterStyle = styled.footer`
       margin-right: 10px;
     }
   }
+  @media screen and (max-width: 1024px) {
+    padding: 50px 0;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 20px 0;
+  }
 `;
 const Footer = () => {
   return (

@@ -17,6 +17,7 @@ const TeamMemberCardStyle = styled.div`
   }
 
   .card-image .card-image-context {
+    text-align: justify;
     border-radius: 4px;
     position: absolute;
     top: 0;
@@ -58,15 +59,15 @@ const TeamMemberCardStyle = styled.div`
 
   @media screen and (max-width: 796px) {
     .card-image {
-      height: 410px;
-      width: 310px;
+      height: 430px;
+      width: 320px;
       .card-image-context p {
         font-size: 12px;
         padding: 70px 35px;
       }
       img {
-        height: 410px;
-        width: 310px;
+        height: 430px;
+        width: 320px;
       }
     }
   }

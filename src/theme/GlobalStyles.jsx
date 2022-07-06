@@ -3,7 +3,9 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Teko:wght@300;400;500;600;700&display=swap');
-  * {
+
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -61,10 +63,12 @@ export default createGlobalStyle`
   .text-white{
     color: ${(props) => props.theme.colors.white};
   }
+  .mt-10{
+    margin-top: 10px;
+  }
   @media screen and (max-width: 560px) {
     .section-description {
       max-width: 300px;
     }
   }
-
 `;
