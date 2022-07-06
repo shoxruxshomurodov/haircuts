@@ -22,6 +22,21 @@ const links = [
   },
 ];
 
+const addresses = [
+  {
+    id: 1,
+    title: "London 27 Whitcomb St.",
+  },
+  {
+    id: 2,
+    title: "London 27 Whitcomb St.ass",
+  },
+  {
+    id: 3,
+    title: "London 27 Whitcomb St.",
+  },
+];
+
 const NavbarStyle = styled.div`
   .nav-container {
     background-color: #fff;
@@ -53,12 +68,33 @@ const NavbarStyle = styled.div`
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
+  .nav-address-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
   .nav-address {
     margin-left: 10px;
     font-weight: 400;
     font-size: 17px;
     line-height: 130%;
     display: none;
+  }
+  .address-select-container {
+    top: 30px;
+    left: 10px;
+    position: absolute;
+  }
+  .address-list {
+    list-style-type: none;
+  }
+
+  .address-list-item {
+    display: flex;
+    color: #000;
   }
   .nav-links {
     display: none;
@@ -204,6 +240,8 @@ const Navbar = ({ backgroundColor, fontColor, brand }) => {
   };
 
   const [isMenuClosed, setMenuClosed] = useState(true);
+  const [isAddressClosed, setAddressClosed] = useState(true);
+
   return (
     <NavbarStyle>
       <div
@@ -421,10 +459,19 @@ const Navbar = ({ backgroundColor, fontColor, brand }) => {
               />
             </svg>
             <Hidden xs sm>
-              <p className="nav-address">London 27 Whitcomb St.</p>
-              <span className="icon">
-                <FiChevronDown size={12} />
-              </span>
+              <div className="nav-address-select">
+                <p className="nav-address">London 27 Whitcomb St.</p>
+                <span className="icon">
+                  <FiChevronDown size={12} />
+                </span>
+                {/* <div className="address-select-container">
+                  {addresses.map((address) => (
+                    <ul className="address-list">
+                      <li className="address-list-item">{address.title}</li>
+                    </ul>
+                  ))}
+                </div> */}
+              </div>
             </Hidden>
           </div>
           <div
@@ -677,10 +724,12 @@ const Navbar = ({ backgroundColor, fontColor, brand }) => {
                   />
                 </svg>
                 <Hidden md sm>
-                  <p className="nav-address">London 27 Whitcomb St.</p>
-                  <span className="icon">
-                    <FiChevronDown size={12} />
-                  </span>
+                  <div>
+                    <p className="nav-address">London 27 Whitcomb St.</p>
+                    <span className="icon">
+                      <FiChevronDown size={12} />
+                    </span>
+                  </div>
                 </Hidden>
               </div>
               <div

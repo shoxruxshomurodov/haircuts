@@ -19,6 +19,7 @@ const LandingPageContainer = () => {
       <Element name="about">
         <AboutSection />
       </Element>
+      <DiscountSection />
       <Element name="services">
         <ServiceSection />
       </Element>
